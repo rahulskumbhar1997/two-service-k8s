@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-college-app
+  namespace: two-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: college-app
+  template:
+    metadata:
+      labels:
+        name: college-app
+    spec:
+      containers:
+        - name: python-college-app
+          image: rahulkumbhar/two-service-python-college-app:v1
+          ports:
+            - containerPort: 8090
