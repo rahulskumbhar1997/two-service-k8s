@@ -16,5 +16,6 @@ spec:
       containers:
         - name: python-college-app
           image: rahulkumbhar/two-service-python-college-app:v2
+          imagePullPolicy: Always
           ports:
             - containerPort: 8090

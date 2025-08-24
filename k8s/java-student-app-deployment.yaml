@@ -16,5 +16,6 @@ spec:
       containers:
         - name: java-server
           image: rahulkumbhar/two-service-java-student-app:v2
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
