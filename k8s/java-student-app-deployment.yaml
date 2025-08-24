@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: java-server
-          image: rahulkumbhar/two-service-java-student-app:v1
+          image: rahulkumbhar/two-service-java-student-app:v2
           ports:
             - containerPort: 8080

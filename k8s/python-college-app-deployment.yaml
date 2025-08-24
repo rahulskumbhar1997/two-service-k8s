@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: python-college-app
-          image: rahulkumbhar/two-service-python-college-app:v1
+          image: rahulkumbhar/two-service-python-college-app:v2
           ports:
             - containerPort: 8090
