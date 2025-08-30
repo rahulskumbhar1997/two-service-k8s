@@ -1,0 +1,30 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: read-namespaces
+rules:
+- apiGroups: ["networking.k8s.io"]
+  resources: ["namespaces", "ingressclasses", "ingresses"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["namespaces", "nodes", "pods", "configmaps", "secrets", "services", "events"]
+  verbs: ["get", "list", "watch", "create", "patch", "update"]
+- apiGroups: ["discovery.k8s.io"]
+  resources: ["endpointslices"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["coordination.k8s.io"]
+  resources: ["leases"]
+  verbs: ["get", "watch", "list", "create", "update", "patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: read-namespaces-binding
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: two-service
+roleRef:
+  kind: ClusterRole
+  name: read-namespaces
+  apiGroup: rbac.authorization.k8s.io
